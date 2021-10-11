@@ -16,6 +16,6 @@ $(BUILD_FILES):
 	rsvg-convert -w 48 -o $(TEMP_DIR)/$(LOCAL_DIR)/$@_48.png $@.svg
 	rsvg-convert -w 72 -o $(TEMP_DIR)/$(LOCAL_DIR)/$@_72.png $@.svg
 	rsvg-convert -w 96 -o $(TEMP_DIR)/$(LOCAL_DIR)/$@_96.png $@.svg
-	echo -e "24 2 2 $@_24.png\n48 4 4 $@_48.png\n72 6 6 $@_72.png\n96 8 8 $@_96.png" |\
-	xcursorgen -p $(TEMP_DIR)/$(LOCAL_DIR) - $(BUILD_DIR)/$(LOCAL_DIR)/$@
+	echo "24 2 2 $@_24.png\n48 4 4 $@_48.png\n72 6 6 $@_72.png\n96 8 8 $@_96.png" > $(TEMP_DIR)/$(LOCAL_DIR)/config.txt
+	xcursorgen -p $(TEMP_DIR)/$(LOCAL_DIR) $(TEMP_DIR)/$(LOCAL_DIR)/config.txt $(BUILD_DIR)/$(LOCAL_DIR)/$@
 
